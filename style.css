@@ -6,6 +6,36 @@
 *{
     margin: 0;
     padding: 0;
+    list-style: none; /* todos os elementos de lista não terão as bolinhas do lado*/
+    text-decoration: none; /*todos os elementos não estarão sublinhados*/
+}
+
+:root{ /*se em algum momento quiser mudar as fontes */
+    --font-primary: "Baloo Da 2", serif;
+    --font-secundary: "Josefin Slab", serif;
+    --font-action: "Mulish", serif;
+    
+}
+
+.hamburguer{
+    /*background-color: red;*/
+    width: 2rem; 
+    height: 2rem;
+    position: fixed; /*fixo independente da rolagem da imagem tem que aparecer na mesma posição*/
+    z-index: 100; /*posição X - vertical, Y-horizontal, Z- profundidade*/
+    right: 2rem; /*posição para direita*/
+    top: 2rem;  /*posição para o topo*/
+    display: flex; /*espalhar as linhas*/
+    flex-direction: column; /*o flex vai ser na direção column, vai ficar um embaixo do outro ao inves de um ao lado do outro */
+    justify-content: space-evenly; /* como vai se comportar com relação ao espaçamento*/ 
+    cursor: pointer; /*a seta do mouse muda, ou seja, há uma interação*/
+}
+
+.line{
+    width: 100%;
+    height: .1rem; /* alltura das linhas branquinhas */
+    background-color: white;
+    box-shadow: 0.1rem 0.1rem 1px #000;
 }
 
 header{
@@ -31,9 +61,10 @@ header{
     animation: zoom 25s;
 
 }
+
 @keyframes zoom{
     0%{
-        transform: scale(1.5);
+        transform: scale(1.3);
     }
     100%{
         transform: scale(1);
@@ -49,8 +80,8 @@ header{
 
 .banner h1{
     color: #ffffff;
-    font-size: 3.5rem;
-    font-family: "Baloo Da 2", serif;
+    font-size: 3.5rem; /* igual a 16px*/
+    font-family: var(--font-primary);
     font-weight: 200;
     text-shadow: .3rem .4rem 2px rgba(0,0,0,.4);
     line-height: 3.5rem;
@@ -60,7 +91,7 @@ header{
 }
 
 .banner p{
-    font-family: "Josefin Slab", serif;
+    font-family: var(--font-secundary);
     color: #fff;
     font-size: 2rem;
     text-shadow: .2rem .2rem rgba(0,0,0,.4);
@@ -69,8 +100,8 @@ header{
     animation: moveBanner 1s 0.7s forwards;
 }
 
-.banner buttom{
-    font-family: "Muli", serif;
+.banner button{
+    font-family: var(--font-action);
     color: #fff;
     text-transform: uppercase;
     letter-spacing: .1rem; /* espaçamento das letras*/
@@ -85,7 +116,7 @@ header{
     animation: moveBanner 1s 0.9s forwards;
 }
 
-.banner buttom:hover{ /*animação no buttom*/
+.banner button:hover{ /*animação no buttom*/
     opacity: 0.8;
     font-size: #000;
 
@@ -100,5 +131,66 @@ header{
         transform: translateY(0) rotateY(0);
         opacity: 1;
     }   
+}
+
+.sidebar{
+    width: 20rem;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+}
+
+.menu{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.menu-item{
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.menu-link{
+    font-family: var(--font-action);
+    font-size: 2rem;
+    color: #555;
+    transition: color 1s;
+}
+
+.menu-link:hover{
+    color: #6a3093;
+}
+
+.social-media{
+    /*background-color: red;*/
+    position: absolute; 
+    bottom: 2rem; /*jogar os icones para baixo*/
+    width: 100%; 
+    display: flex; /*distribuir os icones pela linha*/ 
+    justify-content: space-evenly; /*qualidade de espaço entre eles*/
+}
+
+.social-media i{
+    background-color: #6a3093;
+    color: #fff;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 1s;
+}
+
+.social-media i:hover{
+    background-color: #a04fff;
+
 }
 
